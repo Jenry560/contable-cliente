@@ -28,7 +28,7 @@ export default function FormCliente({fechData,datos,estado,setEstado,RegistradoP
                 "Cedula": data.Cedula,
                 "Registro": RegistradoPor
             }
-            const response = await axios.post("http://localhost:4000/postcliente",NuevoCliente)
+            const response = await axios.post("https://server-contable.onrender.com/postcliente",NuevoCliente)
             fechData()
             setEstado(!estado)     
         }

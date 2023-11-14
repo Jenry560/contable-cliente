@@ -21,7 +21,7 @@ export default function Sign(){
         const form = document.getElementsByClassName("input_user")
 
         if(data.Contraseña == data.Repetir){
-            const response = await axios.post("http://localhost:4000/postlog",data)
+            const response = await axios.post("https://server-contable.onrender.com/postlog",data)
             if(response.data.check){
                 form[0].reset()
                 history("/log")

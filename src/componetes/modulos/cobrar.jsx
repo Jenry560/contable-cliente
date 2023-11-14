@@ -16,8 +16,8 @@ export default function Cobrar({title,icon,codigo,RegistradoPor}){
     
     
     const fechData = async () =>{
-        const clientes = await axios.get("http://localhost:4000/getCliente")
-        const transacciones = await axios.get("http://localhost:4000/getTrans")
+        const clientes = await axios.get("https://server-contable.onrender.com/getCliente")
+        const transacciones = await axios.get("https://server-contable.onrender.com/getTrans")
         if (transacciones.data.length > 0) {
             const cxc = transacciones.data.filter((red)=> red.Codigo.length == 5 && red.Saldo > 0 && red.Registro == RegistradoPor ) 
             if (clientes.data.length > 0 && cxc.length > 0 ) {

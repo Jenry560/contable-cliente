@@ -54,7 +54,7 @@ export default function Registro({RegistradoPor}){
             "Registro": RegistradoPor
         }
 
-        const response = await axios.post("http://localhost:4000/postTrans",newdata)
+        const response = await axios.post("https://server-contable.onrender.com/postTrans",newdata)
         
         if(response.data.check){
             setlook(true)

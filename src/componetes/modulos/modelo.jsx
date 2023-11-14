@@ -29,7 +29,7 @@ export default function Modelo({title,icon,codigo,RegistradoPor}){
     }
 
     const fechData = async ()=>{
-        const transacciones = await axios.get("http://localhost:4000/getTrans")
+        const transacciones = await axios.get("https://server-contable.onrender.com/getTrans")
         if (transacciones.data.length > 0){
             const buscado = transacciones.data.filter((re)=> re.Codigo == codigo && re.Registro == RegistradoPor)
             if(buscado.length > 0 ){

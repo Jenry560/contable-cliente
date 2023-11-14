@@ -18,7 +18,7 @@ export default function Log(){
         const form = document.getElementsByClassName("input_user")
      
 
-        const response = await axios.post("http://localhost:4000/compare",data)
+        const response = await axios.post("https://server-contable.onrender.com/compare",data)
 
         if(response.data.check){
             await localStorage.setItem("user",JSON.stringify(response.data))
