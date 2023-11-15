@@ -14,7 +14,7 @@ export default function Registro({RegistradoPor}){
 
 
     const fechDataClient= async ()=>{
-        const transData = await axios.get("http://localhost:4000/getCliente")
+        const transData = await axios.get("https://server-contable.onrender.com/getCliente")
         setDatos(transData.data)
     }
 
