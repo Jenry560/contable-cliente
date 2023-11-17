@@ -17,7 +17,7 @@ export default function Sign(){
     const clientId = "519988429373-9sugtshvmp40v3l447ls6gqnsm5ihj9u.apps.googleusercontent.com"
  
     const onSuccess = (resp) =>{
-        const data = jwtDecode(response.credential)
+        const data = jwtDecode(resp.credential)
         console.log(data)
     }
     const onFailure = () =>{
