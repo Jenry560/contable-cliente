@@ -520,12 +520,14 @@ input, select{
     font-size: 15px;
 }
 .gogle{
-    display: flex;
+    
     justify-content: center;
     align-items: center;
     padding-top: 10px;
     margin: auto;
-    width: 30% ;
+    width: 30%;
+    text-align: center;
+
    
 }
 @media (max-width: 880px) {

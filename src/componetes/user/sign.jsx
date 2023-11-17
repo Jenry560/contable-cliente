@@ -7,18 +7,28 @@ import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
  
 export default function Sign(){
-  
-    //validar que el correo no este registrado en la base de dato
-    const[respuesta,setRespuesta]= useState()
     const history = useNavigate()
     const [mensaje,setMensaje] = useState(false)
     const { register,formState: {errors} , handleSubmit} = useForm()
     
-    const clientId = "519988429373-9sugtshvmp40v3l447ls6gqnsm5ihj9u.apps.googleusercontent.com"
+   
  
-    const onSuccess = (resp) =>{
+    const onSuccess = async (resp) =>{
         const data = jwtDecode(resp.credential)
-        console.log(data)
+        newData = {
+            Correo: data.email,
+            Nombre: data.name,
+        }
+
+        const response = await axios.post("https://server-contable.onrender.com/google",newData)
+        if(response.data.check){
+            form[0].reset()
+            history("/log")   
+            await localStorage.setItem("user",JSON.stringify(response.data))
+            setTimeout(() => {
+                window.location.href="/"
+            }, 1000);
+    }
     }
     const onFailure = () =>{
         alert("something went wrong ")
@@ -85,7 +95,7 @@ export default function Sign(){
                 {errors.Repetir?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña 2 es requerido</p> }
                 {mensaje && <p>{mensaje}</p>}
                 <div className="gogle" >
-                <GoogleLogin  onSuccess={onSuccess} onError={onFailure}  />
+                <GoogleLogin style={{with: "10px"}} onSuccess={onSuccess} onError={onFailure}  />
                 </div>
                <p className="media">Ya tienes una cuenta entra &nbsp;<Link to="/log">aqui</Link></p>
                <input type="submit" value="Crear usuario" className="btnx btn"/>
