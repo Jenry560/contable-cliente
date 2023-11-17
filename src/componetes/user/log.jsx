@@ -9,7 +9,7 @@ export default function Log(){
     
     const [mensaje,setMensaje] = useState(false)
     const { register,formState: {errors} , handleSubmit} = useForm()
-    const navi = useNavigate()
+   
 
    
     
@@ -41,7 +41,7 @@ export default function Log(){
         <section >
             <form className="input_user" onSubmit={handleSubmit(onSubmit)} >
                 <div>
-                    <h1 style={{fontSize: "50px"}}>App contable</h1>
+                    <h1 className="app_title">Bienveniedo a la App contable</h1>
                     <LuUserCircle style={{fontSize : "90px", color: "black"}} />
                     <h1 style={{color: "black", marginBottom:"15px"}} className="media">Iniciar sesion</h1>
                 </div>
@@ -60,7 +60,8 @@ export default function Log(){
                 {errors.Correo?.type === 'pattern' && <p  style={{fontSize: "15px"}}>El Correo no es valido</p> }
                 {errors.Correo?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo correo es requerido</p> }
                 {errors.Contraseña?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña es requerido</p> }
-               <p style={{color: "black", marginTop:"20px"}} className="media">Aun no tienes una cuenta entra &nbsp;<Link to="/sign">   aqui</Link></p>
+              
+               <p className="media">Aun no tienes una cuenta entra &nbsp;<Link to="/sign">   aqui</Link></p>
                <input type="submit" value="Iniciar sesion" className="btnx btn"/>
             </form>
         </section>

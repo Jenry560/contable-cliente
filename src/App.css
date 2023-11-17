@@ -1,5 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Poppins:wght@400;600;800&display=swap');
+
+
 
 /* Agrega este estilo para asegurarte de que la sección esté visible después de hacer clic en el enlace */
 :target {
@@ -12,7 +15,7 @@
     --padding-container: 35px 0;
 }
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family:  "Agbalumo";
 }
 
 .container{
@@ -386,6 +389,10 @@ input, select{
     align-items: center;
     justify-content: center;
     text-align: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    color: black;
    
 }
 .remove{
@@ -503,7 +510,30 @@ input, select{
 .print1{
     font-size: 10px;
 }
+.app_title{
+    flex-wrap: wrap;
+    font-size: 50px;
+    margin-bottom: 7px;
+}
+.app_p{
+    color: #333;
+    font-size: 15px;
+}
+.gogle{
+    margin: auto;
+    width: 30%;
+}
 @media (max-width: 880px) {
+    .app_title{
+        font-size: 30px;
+    }
+    .app_p{
+        font-size: 10px;
+    }
+    .user_int{
+        width: 80%;
+        font-size: 10px;
+    }
     form{
         max-width: 50%;    
     }
@@ -521,10 +551,7 @@ input, select{
       
         grid-template-columns: repeat(auto-fit, minmax(100px,auto));
     }   
-    .user_int{
-        width: 80%;
-        font-size: 10px;
-    }
+    
     
     .media{
         text-align: center;
@@ -538,7 +565,14 @@ input, select{
         font-size: 15px;
     }
 }
-
+@media (max-width: 410px) {
+    .app_title{
+        font-size: 20px;
+    }
+    .app_p{
+        font-size: 6px;
+    }
+}
 @keyframes modal{
     from{
         transform: translateY(50vh);

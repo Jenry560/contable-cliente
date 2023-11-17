@@ -1,8 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {LuUserCircle} from "react-icons/lu"
 import { useForm } from "react-hook-form";
 import { Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import { gapi } from "gapi-script";
+import GoogleLogin from "react-google-login";
 
 export default function Sign(){
   
@@ -12,11 +14,23 @@ export default function Sign(){
     const [mensaje,setMensaje] = useState(false)
     const { register,formState: {errors} , handleSubmit} = useForm()
     
-
-    const fechPost = async (datos)=>{
-        
+    const clientId = "519988429373-9sugtshvmp40v3l447ls6gqnsm5ihj9u.apps.googleusercontent.com"
+    
+    useEffect(()=>{
+        const start = () =>{
+            gapi.auth2.init({
+                clientId: clientId,
+            })
+        }
+        gapi.load("client:auth2",start)
+    },[])
+    const onSuccess = (resp) =>{
+        console.log(resp)
     }
-
+    const onFailure = () =>{
+        alert("something went wrong ")
+    }
+    
     const onSubmit = async (data) =>{
         const form = document.getElementsByClassName("input_user")
 
@@ -40,12 +54,14 @@ export default function Sign(){
         }
 
     }
+    
     return(
         <>
         <section >
             <form className="input_user" onSubmit={handleSubmit(onSubmit)} >
                 <div>
-                    <h1 style={{fontSize: "50px"}}>App contable</h1>
+                    <h1 className="app_title">Bienveniedo a la App contable</h1>
+                    <p  className="app_p">Esta aplicación redefine la contabilidad: elegante, fácil de usar y poderosa. Simplifica tus finanzas con automatización inteligente y seguridad de primer nivel. Tu aliada perfecta para llevar un registro preciso de tus transacciones.</p>
                     <LuUserCircle style={{fontSize : "90px", color: "black"}} />
                     <h1 style={{color: "black", marginBottom:"15px"}} className="media">Registrarse</h1>
                 </div>
@@ -75,7 +91,8 @@ export default function Sign(){
                 {errors.Contraseña?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña es requerido</p> }
                 {errors.Repetir?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña 2 es requerido</p> }
                 {mensaje && <p>{mensaje}</p>}
-               <p style={{color: "black", marginTop:"20px"}} className="media">Ya tienes una cuenta entra &nbsp;<Link to="/log">aqui</Link></p>
+                <GoogleLogin clientId={clientId} onSuccess={onSuccess} onFailure={onFailure} cookiePolicy='single_host_origin' className="gogle"/>
+               <p className="media">Ya tienes una cuenta entra &nbsp;<Link to="/log">aqui</Link></p>
                <input type="submit" value="Crear usuario" className="btnx btn"/>
             </form>
         </section>
