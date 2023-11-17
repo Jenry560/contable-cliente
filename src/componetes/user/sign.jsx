@@ -15,7 +15,7 @@ export default function Sign(){
  
     const onSuccess = async (resp) =>{
         const data = jwtDecode(resp.credential)
-        newData = {
+        const newData = {
             Correo: data.email,
             Nombre: data.name,
         }
