@@ -3,9 +3,9 @@ import {LuUserCircle} from "react-icons/lu"
 import { useForm } from "react-hook-form";
 import { Link, useNavigate} from "react-router-dom";
 import axios from "axios";
-import { gapi } from "gapi-script";
 import { GoogleLogin } from '@react-oauth/google';
-
+import { jwtDecode } from "jwt-decode";
+ 
 export default function Sign(){
   
     //validar que el correo no este registrado en la base de dato
@@ -17,7 +17,8 @@ export default function Sign(){
     const clientId = "519988429373-9sugtshvmp40v3l447ls6gqnsm5ihj9u.apps.googleusercontent.com"
  
     const onSuccess = (resp) =>{
-        console.log(resp)
+        const data = jwtDecode(response.credential)
+        console.log(data)
     }
     const onFailure = () =>{
         alert("something went wrong ")
