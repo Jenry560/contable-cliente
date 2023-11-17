@@ -521,7 +521,7 @@ input, select{
 }
 .gogle{
     margin: auto;
-    width: 30%;
+    width: 50% !important;
 }
 @media (max-width: 880px) {
     .app_title{
