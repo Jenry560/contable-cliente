@@ -520,8 +520,10 @@ input, select{
     font-size: 15px;
 }
 .gogle{
+    padding-top: 10px;
     margin: auto;
-    width: 50% !important;
+    width: 30% ;
+   
 }
 @media (max-width: 880px) {
     .app_title{

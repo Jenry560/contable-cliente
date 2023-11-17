@@ -15,15 +15,7 @@ export default function Sign(){
     const { register,formState: {errors} , handleSubmit} = useForm()
     
     const clientId = "519988429373-9sugtshvmp40v3l447ls6gqnsm5ihj9u.apps.googleusercontent.com"
-    
-    // useEffect(()=>{
-    //     const start = () =>{
-    //         gapi.auth2.init({
-    //             clientId: clientId,
-    //         })
-    //     }
-    //     gapi.load("client:auth2",start)
-    // },[])
+ 
     const onSuccess = (resp) =>{
         console.log(resp)
     }
@@ -91,7 +83,9 @@ export default function Sign(){
                 {errors.Contraseña?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña es requerido</p> }
                 {errors.Repetir?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña 2 es requerido</p> }
                 {mensaje && <p>{mensaje}</p>}
-                <GoogleLogin  onSuccess={onSuccess} onError={onFailure}  className="gogle"/>
+                <div className="gogle" >
+                <GoogleLogin  onSuccess={onSuccess} onError={onFailure}  />
+                </div>
                <p className="media">Ya tienes una cuenta entra &nbsp;<Link to="/log">aqui</Link></p>
                <input type="submit" value="Crear usuario" className="btnx btn"/>
             </form>
