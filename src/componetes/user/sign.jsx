@@ -23,8 +23,8 @@ export default function Sign(){
         const response = await axios.post("https://server-contable.onrender.com/google",newData)
         if(response.data.check){
             form[0].reset()
-            history("/log")   
             await localStorage.setItem("user",JSON.stringify(response.data))
+            
             setTimeout(() => {
                 window.location.href="/"
             }, 1000);
