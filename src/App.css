@@ -520,18 +520,10 @@ input, select{
     font-size: 15px;
 }
 .gogle{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding-top: 10px;
+    width: 30%;
     margin: auto;
-    text-align: center;
 }
-.googleX{
-  align-self: center;
-  width: 100px;
-}
+
 @media (max-width: 879px) {
     .app_title{
         font-size: 30px;
