@@ -83,11 +83,14 @@ export default function Log(){
                 {errors.Correo?.type === 'pattern' && <p  style={{fontSize: "15px"}}>El Correo no es valido</p> }
                 {errors.Correo?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo correo es requerido</p> }
                 {errors.Contraseña?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña es requerido</p> }
+                
+                <div className="inline">
                 <div className="gogle" >
                  <GoogleLogin className="googleX" onSuccess={onSuccess} onError={onFailure}  />
                 </div>
                <p className="media">Aun no tienes una cuenta entra &nbsp;<Link to="/sign">   aqui</Link></p>
                <input type="submit" value="Iniciar sesion" className="btnx btn"/>
+               </div>
             </form>
         </section>
         </>

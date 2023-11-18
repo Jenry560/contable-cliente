@@ -95,11 +95,13 @@ export default function Sign(){
                 {errors.Contraseña?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña es requerido</p> }
                 {errors.Repetir?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña 2 es requerido</p> }
                 {mensaje && <p>{mensaje}</p>}
+                <div className="inline">
                 <div className="gogle" >
                  <GoogleLogin className="googleX" onSuccess={onSuccess} onError={onFailure}  />
                 </div>
                <p className="media">Ya tienes una cuenta entra &nbsp;<Link to="/log">aqui</Link></p>
                <input type="submit" value="Crear usuario" className="btnx btn"/>
+               </div>
             </form>
         </section>
         </>
