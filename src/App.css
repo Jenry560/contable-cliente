@@ -520,11 +520,17 @@ input, select{
     font-size: 15px;
 }
 .gogle{
-    width: 30%;
-    margin: auto;
+   padding: 7px 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   max-width: 100%;
 }
 
 @media (max-width: 879px) {
+    .gogle{
+        transform: scale(0.7);
+    }
     .app_title{
         font-size: 30px;
     }

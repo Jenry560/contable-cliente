@@ -3,13 +3,36 @@ import {LuUserCircle} from "react-icons/lu"
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
-
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+ 
 export default function Log(){
 
     
     const [mensaje,setMensaje] = useState(false)
     const { register,formState: {errors} , handleSubmit} = useForm()
    
+    const onSuccess = async (resp) =>{
+        const data = jwtDecode(resp.credential)
+        const newData = {
+            Correo: data.email,
+            Nombre: data.name,
+        }
+
+        const response = await axios.post("https://server-contable.onrender.com/google",newData)
+        if(response.data.check){
+            const form = document.getElementsByClassName("input_user")
+            form[0].reset()
+            await localStorage.setItem("user",JSON.stringify(response.data))
+            
+            setTimeout(() => {
+                window.location.href="/"
+            }, 1000);
+    }
+    }
+    const onFailure = () =>{
+        alert("something went wrong ")
+    }
 
    
     
@@ -60,7 +83,9 @@ export default function Log(){
                 {errors.Correo?.type === 'pattern' && <p  style={{fontSize: "15px"}}>El Correo no es valido</p> }
                 {errors.Correo?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo correo es requerido</p> }
                 {errors.Contraseña?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña es requerido</p> }
-              
+                <div className="gogle" >
+                 <GoogleLogin className="googleX" onSuccess={onSuccess} onError={onFailure}  />
+                </div>
                <p className="media">Aun no tienes una cuenta entra &nbsp;<Link to="/sign">   aqui</Link></p>
                <input type="submit" value="Iniciar sesion" className="btnx btn"/>
             </form>
