@@ -520,17 +520,19 @@ input, select{
     font-size: 15px;
 }
 .gogle{
-    
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding-top: 10px;
     margin: auto;
-    width: 30%;
     text-align: center;
-
-   
 }
-@media (max-width: 880px) {
+.googleX{
+  align-self: center;
+  width: 100px;
+}
+@media (max-width: 879px) {
     .app_title{
         font-size: 30px;
     }
@@ -574,10 +576,11 @@ input, select{
 }
 @media (max-width: 410px) {
     .app_title{
-        font-size: 20px;
+        font-size: 27px;
+        
     }
     .app_p{
-        font-size: 6px;
+        font-size: 10px;
     }
 }
 @keyframes modal{
