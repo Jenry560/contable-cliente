@@ -1,18 +1,20 @@
 import { useState } from "react"
 import {LuUserCircle} from "react-icons/lu"
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { Link} from "react-router-dom";
 import axios from "axios"
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
+import Loader from "../loader/Loader";
  
 export default function Log(){
 
-    
+    const [load,setLoad] = useState(false)
     const [mensaje,setMensaje] = useState(false)
     const { register,formState: {errors} , handleSubmit} = useForm()
    
     const onSuccess = async (resp) =>{
+        setLoad(true)
         const data = jwtDecode(resp.credential)
         const newData = {
             Correo: data.email,
@@ -29,6 +31,7 @@ export default function Log(){
                 window.location.href="/"
             }, 1000);
     }
+    setLoad(false)
     }
     const onFailure = () =>{
         alert("something went wrong ")
@@ -40,6 +43,7 @@ export default function Log(){
        
         const form = document.getElementsByClassName("input_user")
      
+        setLoad(true)
 
         const response = await axios.post("https://server-contable.onrender.com/compare",data)
 
@@ -47,8 +51,8 @@ export default function Log(){
             await localStorage.setItem("user",JSON.stringify(response.data))
             form[0].reset()
                 
-                setTimeout(() => {
-                  window.location.href="/"
+                await setTimeout(() => {
+                 window.location.href="/"
                 }, 1000);
                
         }else{
@@ -56,8 +60,9 @@ export default function Log(){
             setTimeout(()=>{
                 setMensaje()
             },2000)
+            setLoad(false)
         }
-
+      
     }
     return(
         <>
@@ -90,7 +95,9 @@ export default function Log(){
                  <GoogleLogin className="googleX" onSuccess={onSuccess} onError={onFailure}  />
                 </div>
                <p className="media">Aun no tienes una cuenta entra &nbsp;<Link to="/sign">   aqui</Link></p>
-               <input type="submit" value="Iniciar sesion" className="btnx btn"/>
+               
+               {load ? <Loader/> : <input type="submit" value="Iniciar sesion" className="btnx btn"/> }
+               
                </div>
             </form>
             <br />

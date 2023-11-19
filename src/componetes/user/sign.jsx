@@ -5,21 +5,23 @@ import { Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
+import Loader from "../loader/Loader";
  
 export default function Sign(){
     const history = useNavigate()
     const [mensaje,setMensaje] = useState(false)
     const { register,formState: {errors} , handleSubmit} = useForm()
-    
+    const [load,setLoad] = useState(false)
    
  
     const onSuccess = async (resp) =>{
+        setLoad(true)
         const data = jwtDecode(resp.credential)
         const newData = {
             Correo: data.email,
             Nombre: data.name,
         }
-
+        
         const response = await axios.post("https://server-contable.onrender.com/google",newData)
         if(response.data.check){
             const form = document.getElementsByClassName("input_user")
@@ -30,6 +32,7 @@ export default function Sign(){
                 window.location.href="/"
             }, 1000);
     }
+    setLoad(false)
     }
     const onFailure = () =>{
         alert("something went wrong ")
@@ -37,7 +40,7 @@ export default function Sign(){
     
     const onSubmit = async (data) =>{
         const form = document.getElementsByClassName("input_user")
-
+        setLoad(true)
         if(data.Contraseña == data.Repetir){
             const response = await axios.post("https://server-contable.onrender.com/postlog",data)
             if(response.data.check){
@@ -45,7 +48,6 @@ export default function Sign(){
                 history("/log")
             }else{
                 setMensaje(response.data.mensaje)
-                setRespuesta()
                 setTimeout(()=>{
                     setMensaje()
                 },2000)
@@ -56,6 +58,7 @@ export default function Sign(){
                 setMensaje(false)
             },3000)
         }
+    setLoad(false)
 
     }
     
@@ -102,8 +105,9 @@ export default function Sign(){
                  <GoogleLogin className="googleX" onSuccess={onSuccess} onError={onFailure}  />
                 </div>
                <p className="media">Ya tienes una cuenta entra &nbsp;<Link to="/log">aqui</Link></p>
-               <input type="submit" value="Crear usuario" className="btnx btn"/>
+               {load ? <Loader/> : <input type="submit" value="Crear usuario" className="btnx btn"/>}
                </div>
+              
             </form>
             <br />
             <br />
