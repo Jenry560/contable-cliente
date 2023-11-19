@@ -32,6 +32,7 @@ export default function Sign(){
                 window.location.href="/"
             }, 1000);
     }
+    setLoad(false)
     }
     const onFailure = () =>{
         alert("something went wrong ")

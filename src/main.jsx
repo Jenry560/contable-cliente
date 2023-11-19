@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import './normalize.css'
 import './App.css'
+import '../src/componetes/loader/Loader.css'
 import Rutas from './rutas'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 

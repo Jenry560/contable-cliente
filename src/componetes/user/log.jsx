@@ -31,7 +31,7 @@ export default function Log(){
                 window.location.href="/"
             }, 1000);
     }
-  
+    setLoad(false)
     }
     const onFailure = () =>{
         alert("something went wrong ")
