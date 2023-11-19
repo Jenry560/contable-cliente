@@ -1,7 +1,7 @@
 import { useState } from "react"
 import {LuUserCircle} from "react-icons/lu"
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import axios from "axios"
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
@@ -79,12 +79,13 @@ export default function Log(){
                     required: true
                 })}/>
                 </div>
+              
+                <div className="inline">
                 {mensaje && <p  style={{fontSize: "15px",color: 'red'}}>{mensaje}</p> }
                 {errors.Correo?.type === 'pattern' && <p  style={{fontSize: "15px"}}>El Correo no es valido</p> }
                 {errors.Correo?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo correo es requerido</p> }
                 {errors.Contraseña?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña es requerido</p> }
                 
-                <div className="inline">
                 <div className="gogle" >
                  <GoogleLogin className="googleX" onSuccess={onSuccess} onError={onFailure}  />
                 </div>

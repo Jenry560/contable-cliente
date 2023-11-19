@@ -89,13 +89,15 @@ export default function Sign(){
                     required: true
                 })} />
                 </div>
+                
+              
+                <div className="inline">
                 {errors.Nombre?.type === 'required' && <p style={{fontSize: "15px"}}>El Campo nombre es requerido</p> }
                 {errors.Correo?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo correo es requerido</p> }
                 {errors.Correo?.type === 'pattern' && <p  style={{fontSize: "15px"}}>El Correo no es valido</p> }
                 {errors.Contraseña?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña es requerido</p> }
-                {errors.Repetir?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña 2 es requerido</p> }
+                {errors.Repetir?.type === 'required' && <p  style={{fontSize: "15px"}}>El Campo contraseña 2 es requerido</p> }   
                 {mensaje && <p>{mensaje}</p>}
-                <div className="inline">
                 <div className="gogle" >
                  <GoogleLogin className="googleX" onSuccess={onSuccess} onError={onFailure}  />
                 </div>

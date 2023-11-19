@@ -231,7 +231,9 @@ export default function Cliente({RegistradoPor}){
         <div className="newmove">
         <BiPrinter className={visibility ? "printClient" : "visibility"} onClick={imprimir}/>
         <RiFileExcel2Fill  className={visibility ? "printClient" : "visibility"}  onClick={exportarExcel}/>
+        <div className="filtrado">
         <input type="text" name="filtro" className={visibility ? "liqui_text ayust1" : "visibility"} id="filtro" /><AiOutlineSearch onClick={filtrar} className="search"/>
+        </div>
         </div>
        
         <div className="container_cliente" id="miTabla">
@@ -278,6 +280,7 @@ export default function Cliente({RegistradoPor}){
                </div>
 
         </div>
+        <br />
         <FormCliente fechData={fechData} datos={datos}  estado={estado} setEstado={setEstado} RegistradoPor={RegistradoPor}/>
        </>}
         

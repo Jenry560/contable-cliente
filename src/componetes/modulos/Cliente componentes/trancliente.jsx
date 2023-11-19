@@ -103,9 +103,11 @@ XLSX.writeFile(libro, `${env.Codigo}: ${env.Nombre}.xlsx`);
         <div className="movecont">
         <BiPrinter className={visibility ? "print " : "visibility"} onClick={imprimir}/>
         <RiFileExcel2Fill  className={visibility ? "print" : "visibility"}  onClick={exportarExcel}/>
-        <input type="text" name="filtro" className={visibility ? "liqui_text ayust1" : "visibility"} id="filtro" /><AiOutlineSearch onClick={filtrar} className="search"/>
+        <div className="filtrado">
+         <input type="text" name="filtro" className={visibility ? "liqui_text ayust1 " : "visibility"} id="filtro" /><AiOutlineSearch onClick={filtrar} className="search"/>
+        </div>
             <div className="move">
-              <h1>Movimientos cliente</h1>
+              <h1 className="ite_title">Movimientos cliente</h1>
               <HiMiniUserGroup className="ite"/>
             </div>  
         </div>
@@ -115,8 +117,8 @@ XLSX.writeFile(libro, `${env.Codigo}: ${env.Nombre}.xlsx`);
                 <button className={visibility ? "liqui " : "visibility"} onClick={liquidar}>Liquidar</button>
                 <h1 className={visibility ? "liqui_text " : "visibility"} onClick={liquidar}>{formatoNumero.format(value)}</h1>   
               </div>
-              <p className="pp">Codigo:{env.Codigo}</p> 
-              <p className="pp">Nombre:{env.Nombre}</p> 
+              <p className="pp">Codigo: {env.Codigo}</p> 
+              <p className="pp">Nombre: {env.Nombre}</p> 
             </div>
         </div>
         <div className="container_cliente" id="miTabla">
@@ -171,10 +173,11 @@ XLSX.writeFile(libro, `${env.Codigo}: ${env.Nombre}.xlsx`);
         <div className="ayust_cont" >
            <h1 className="liqui_text ayust" >{formatoNumero.format(suma)}</h1>
         </div>    
-       
+     
         </div>
-      
+        
         </div>
+        <br/>
         </>
     )
 }

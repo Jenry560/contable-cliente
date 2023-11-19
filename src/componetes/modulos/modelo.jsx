@@ -104,15 +104,17 @@ export default function Modelo({title,icon,codigo,RegistradoPor}){
         <div className="movecont">
              <BiPrinter className={visibility ? "print" : "visibility"} onClick={imprimir}/>
              <RiFileExcel2Fill  className={visibility ? "print" : "visibility"}  onClick={exportarExcel}/>
+             <div className="filtrado">
              <input type="text" name="filtro" className={visibility ? "liqui_text ayust1" : "visibility"} id="filtro" /><AiOutlineSearch onClick={filtrar} className="search"/>
+             </div>
             <div className="move">
-              <h1>{title}</h1>
+              <h1  className="ite_title" >{title}</h1>
               {icon}
             </div>  
         </div>
         <div className="title_tran">
             <div className="tran_cont">
-              {codigo && <p className="pp">Codigo:{codigo}</p>}  
+              {codigo && <p className="pp">Codigo: {codigo}</p>}  
                
             </div>
         </div>
@@ -160,6 +162,7 @@ export default function Modelo({title,icon,codigo,RegistradoPor}){
             </div> 
             {api.length === 0 &&  <p className="trans">No hay transaccion en el modulo</p>}
         </div>
+        <br />
         </div>
     </>
     )

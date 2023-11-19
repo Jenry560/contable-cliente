@@ -16,19 +16,17 @@ function Navbar() {
   return (
     <>
     
-  <nav className="navbar navbar-expand navbar-light bg-light text-primary">
-  <Link to="/" className="navbar-brand text-xl text-primary " > App contable</Link>
-  <div className="collapse navbar-collapse ajuste text-xl1" id="navbarNav"  >
-  <BiUserCircle className="image" />
-    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-       <li className="nav-item">
-        <a className="nav-link text-primary " >{user.Nombre}</a>
-      </li>
-    </ul>
-    <button className="remove" onClick={logout}>Cerrar sesion</button>
-  </div>
+  <nav className="navbar   navbar-light bg-light text-primary">
   
-  
+   
+    <Link to="/" className="navbar-brand nab text-xl text-primary " > App contable</Link>
+
+    <div className="navbal">
+        <BiUserCircle className="img"/>
+        <a className="nav_name">{user.Nombre}</a>
+        <button className="remove" onClick={logout}>Cerrar sesion</button>
+    </div>    
+    
 </nav>
 
        
