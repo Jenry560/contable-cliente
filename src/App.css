@@ -180,7 +180,7 @@ tr:hover td{
 }
 .icon_add{
     text-align: center;
-    display: flex;
+   
     justify-self: center;
     font-size: 90px;
     margin: auto;
@@ -374,10 +374,11 @@ input, select{
 .input_user{
     display: flex;
     flex-wrap: wrap;
-    margin: 30px auto;
+    margin: auto;
     align-items: center;
     justify-content: center;
     min-height: 400px;
+    top: 20px;
     width: 80%;
 }
 

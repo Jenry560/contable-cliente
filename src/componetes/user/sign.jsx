@@ -105,6 +105,8 @@ export default function Sign(){
                <input type="submit" value="Crear usuario" className="btnx btn"/>
                </div>
             </form>
+            <br />
+            <br />
         </section>
         </>
     )

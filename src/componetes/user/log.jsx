@@ -93,6 +93,8 @@ export default function Log(){
                <input type="submit" value="Iniciar sesion" className="btnx btn"/>
                </div>
             </form>
+            <br />
+            <br />
         </section>
         </>
     )
