@@ -226,8 +226,9 @@ export default function Cliente({RegistradoPor}){
         <div>
           
         <h1 className="cliente_title">Clientes</h1>
-        
-        <AiOutlineUserAdd className="icon_add" onClick={()=> setEstado(!estado)}/>
+        <div className="icon_add">
+         <AiOutlineUserAdd  className="add_icon" onClick={()=> setEstado(!estado)}/>
+        </div>
         <div className="newmove">
         <BiPrinter className={visibility ? "printClient" : "visibility"} onClick={imprimir}/>
         <RiFileExcel2Fill  className={visibility ? "printClient" : "visibility"}  onClick={exportarExcel}/>
