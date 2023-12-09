@@ -99,6 +99,16 @@ function Modulos() {
         <h1 className='title'>Diario general</h1>
         </div> 
         
+        <div  >
+        <figure className="information__pictures">
+            <img src={diario} className="information__img" />
+            <div className="capa">
+              <Link to="/proveedores" className="absolute">8010</Link>
+              
+            </div>
+        </figure>
+        <h1 className='title'>Provedores</h1>
+        </div> 
         
 
        

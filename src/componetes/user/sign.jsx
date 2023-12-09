@@ -67,8 +67,8 @@ export default function Sign(){
         <section >
             <form className="input_user" onSubmit={handleSubmit(onSubmit)} >
                 <div>
-                    <h1 className="app_title">Bienveniedo a la App contable</h1>
-                    <p  className="app_p">Esta aplicación redefine la contabilidad: elegante, fácil de usar y poderosa. Simplifica tus finanzas con automatización inteligente y seguridad de primer nivel. Tu aliada perfecta para llevar un registro preciso de tus transacciones.</p>
+                    <h1 className="app_title">App contable</h1>
+                  
                     <LuUserCircle style={{fontSize : "90px", color: "black"}} />
                     <h1 style={{color: "black", marginBottom:"15px"}} className="media">Registrarse</h1>
                 </div>

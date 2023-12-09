@@ -24,6 +24,7 @@ import Log from './componetes/user/log.jsx'
 import Modulos from './componetes/modulos.jsx'
 import ProtectedRoute from './componetes/utils/protect.jsx'
 import { useLocalStorage } from 'react-use'
+import Principal from './componetes/principal/principal.jsx';
 
 
 
@@ -37,7 +38,7 @@ export default function Rutas(){
     return(
      <Router>
       <Routes>
-        <Route element={<ProtectedRoute canActivate={user} redirectPath={"/sign"}/>}>
+        <Route element={<ProtectedRoute canActivate={user} redirectPath={"/signs"}/>}>
         <Route path='/' element={<App/>}>
           <Route path='/' element={<Modulos/>} />
           <Route path='cliente' element={<Cliente RegistradoPor={user && user.Correo}/>}/>
@@ -50,6 +51,7 @@ export default function Rutas(){
           <Route path='diario' element={<Diario RegistradoPor={user && user.Correo} icon={<RiNewspaperLine className='ite'  />}/>}/>
         </Route>
         </Route>
+        <Route path='signs' element={<Principal/>}/>
        <Route path='log' element={<Log/>}/>
        <Route path='sign' element={<Sign/>}/>        
       </Routes>
