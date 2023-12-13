@@ -49,7 +49,7 @@ export default function Cliente({RegistradoPor}){
 
     useEffect(()=>{
         fechDataTrans()
-    })
+    },[])
     
     useEffect(()=>{
         if(datos){

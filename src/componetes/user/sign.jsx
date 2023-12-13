@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react"
-import {LuUserCircle} from "react-icons/lu"
 import { useForm } from "react-hook-form";
 import { Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import Loader from "../loader/Loader";
- 
+const logo = new URL("../../imagenes/App_contable.png",import.meta.url);
 export default function Sign(){
     const history = useNavigate()
     const [mensaje,setMensaje] = useState(false)
@@ -67,9 +66,7 @@ export default function Sign(){
         <section >
             <form className="input_user" onSubmit={handleSubmit(onSubmit)} >
                 <div>
-                    <h1 className="app_title">App contable</h1>
-                  
-                    <LuUserCircle style={{fontSize : "90px", color: "black"}} />
+                    <img src={logo} alt="logo para el registro" style={{width: '250px'}}/>
                     <h1 style={{color: "black", marginBottom:"15px"}} className="media">Registrarse</h1>
                 </div>
                 <div className="user">

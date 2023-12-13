@@ -14,9 +14,12 @@ export default function Registro({RegistradoPor}){
 
 
     const fechDataClient= async ()=>{
-        const transData = await axios.get("https://server-contable.onrender.com/getCliente")
-        setDatos(transData.data)
+        const transDataClientes = await axios.get("https://server-contable.onrender.com/getCliente")
+        const transDataProveedores = await axios.get("https://server-contable.onrender.com/getProveedores")
+        const personasData = transDataClientes.data.concat(transDataProveedores.data)
+        setDatos(personasData)
     }
+
 
     useEffect(()=>{
         fechDataClient()
@@ -39,7 +42,6 @@ export default function Registro({RegistradoPor}){
                 return parseInt(data.Monto)
             }else if(data.Partida == 'Credito'){
                 const negativo = parseInt(data.Monto) * -1
-                console.log(negativo)
                 return negativo
             }
         }    
@@ -53,6 +55,20 @@ export default function Registro({RegistradoPor}){
             "Fecha": `${fecha.getDate()}/${fecha.getMonth()+1}/${fecha.getFullYear()}`,
             "Registro": RegistradoPor
         }
+        
+        //seccion de codigo donde se va regitrar la trasaccion al invetario//
+        if(newdata.Codigo.length == 6 && newdata.Saldo < 0){
+          const newInventario = {...newdata}
+          newInventario.Codigo = "7090"
+          newInventario.Monto = data.Monto
+          newInventario.Saldo = data.Monto
+          newInventario.Descripcion = `Proveedor: ${encontradClient.Nombre} (${newdata.Descripcion}) `
+          await axios.post("https://server-contable.onrender.com/postTrans",newInventario)
+
+        }
+
+
+
 
         const response = await axios.post("https://server-contable.onrender.com/postTrans",newdata)
         
@@ -89,13 +105,13 @@ export default function Registro({RegistradoPor}){
                    <input type="number"  {...register("Codigo",
                    {
                        required: true,
-                       maxLength: 5,
+                       maxLength: 6,
                        minLength:4
 
                    }
                    )}className="field" />
                    {errors.Codigo?.type === 'required' && <p>El Campo codigo es requerido</p> }
-                   {errors.Codigo?.type === 'minLength' && <p>El minimo de caracteres son 4</p> }
+                   {errors.Codigo?.type === 'minLength' && <p>El minimo de caracteres son 6</p> }
                    {errors.Codigo?.type === 'maxLength' && <p>El limite de carecteres son 4</p> }
                </div>
 

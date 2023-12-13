@@ -1,12 +1,11 @@
 import { useState } from "react"
-import {LuUserCircle} from "react-icons/lu"
 import { set, useForm } from "react-hook-form";
 import { Link} from "react-router-dom";
 import axios from "axios"
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import Loader from "../loader/Loader";
- 
+const logo = new URL("../../imagenes/App_contable.png",import.meta.url);
 export default function Log(){
 
     const [load,setLoad] = useState(false)
@@ -40,13 +39,14 @@ export default function Log(){
    
     
     const onSubmit = async (data) => {
-       
+      try {
+         
         const form = document.getElementsByClassName("input_user")
      
         setLoad(true)
-
+       
         const response = await axios.post("https://server-contable.onrender.com/compare",data)
-
+    
         if(response.data.check){
             await localStorage.setItem("user",JSON.stringify(response.data))
             form[0].reset()
@@ -62,6 +62,9 @@ export default function Log(){
             },2000)
             setLoad(false)
         }
+      } catch (error) {
+        console.log(error)
+      }
       
     }
     return(
@@ -69,9 +72,8 @@ export default function Log(){
         <section >
             <form className="input_user" onSubmit={handleSubmit(onSubmit)} >
                 <div>
-                    <h1 className="app_title">Bienveniedo a la App contable</h1>
-                    <LuUserCircle style={{fontSize : "90px", color: "black"}} />
-                    <h1 style={{color: "black", marginBottom:"15px"}} className="media">Iniciar sesion</h1>
+                    <img src={logo} alt="logo para el registro" style={{width: '250px'}}/>
+                    <h1 style={{color: "black", marginBottom:"15px"}} className="media">Iniciar sesión</h1>
                 </div>
                 <div className="user">
                 

@@ -1,8 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Poppins:wght@400;600;800&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Anton&family=Bebas+Neue&family=Kaushan+Script&family=Poppins:wght@400;600;800&display=swap');
 
 /* Agrega este estilo para asegurarte de que la sección esté visible después de hacer clic en el enlace */
 :target {
@@ -29,8 +28,10 @@ body{
    width: 100%;
    min-height: 100vh;
    position: relative;
-  
-   background-color: blue;
+   background-image: url('./imagenes/back1.png');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
 }
 .information__pictures{
     justify-items: center;
@@ -70,7 +71,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: auto;
-    gap: 3rem;
+    gap: 2.5rem;
 
 }
 
@@ -550,13 +551,32 @@ input, select{
 .inline{
     flex-direction: column;
 }
+.background{
+    opacity: 0;
+    z-index: 100;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background-image: url('./imagenes/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: apear 2s ease forwards;
+    padding-bottom: 20px;
+}
 .principal{
-    max-width: 1200px;
+    z-index: 200;
+    text-align: center;
+    flex-wrap: wrap;
+    padding-top: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 4rem;
     align-items: center;
 }
 .principal_rutas{
+    padding-left: 20px;
+    padding-top: 20px;
     gap: 1rem;
     display: flex;
     justify-content: center;
@@ -566,13 +586,87 @@ input, select{
 
 }
 .principal_title{
+    
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 50px;
+   
 }
+.principal h1{
+    
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+}
+.principal p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    color:rgb(0, 0, 128,0.6);
+}
+.boton_rute{
+    outline: none;
+    text-decoration: none;
+    background-color:  rgb(0, 0, 128,0.6);
+    padding: 5px;
+    color: white;
+    border-radius: 20px;
+    box-shadow:  0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.5s; 
+}
+.contable{
+    padding-top: 20px;
+    width: 300px;
+   
+}
+.boton_rute:hover{
+    text-decoration: none;
+    color: white;
+    background-color:  rgb(0, 0, 128);
+}
+.text-princi{
+    width: 300px;
+}
+.rnc_button{
+    margin-top: 5px;
+    border-color: #0074e3;
+    transition: background 0.5s;
+    border-radius: 20px;
+    box-shadow:  0 0 10px rgba(60, 73, 255, 0.7);
+}
+.rnc_button:hover{
+    cursor: pointer;
+    background-color: #0074e3;
+}
+.alerta{
 
+    box-shadow: 0 10px 10px rgb(0, 0, 0,0.1);
+    border-radius: 25px;
+    background-color: #333;
+    color: #ddd;
+    margin: auto;
+    padding: 3px;
+    width: 160px;
+    text-align: center;
+    font-size: 10.5px;
+    position: fixed;
+    transform: translateX(75px)translateY(21px);
+    z-index: 1;
+   
+}
+.alerta::before{
+    z-index: -1;
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    background: #333;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg)
+}
 @media (max-width: 947px) {
    .filtrado{
     margin: auto;
@@ -632,6 +726,15 @@ input, select{
     }
 }
 @media (max-width: 479px) {
+    .boton_rute{
+        background-color:  rgb(0, 0, 128);
+    }
+    .principal h1{
+        font-size: 30px;
+    }
+    .principal p{
+        font-size: 25px;
+    }
     .ite{
         width: 100px;
     }
@@ -674,5 +777,13 @@ input, select{
     }
     top{
         transform: translateY(0);
+    }
+}
+
+@keyframes apear {
+    0%{
+        opacity: 0;
+    }100%{
+        opacity: 1;
     }
 }

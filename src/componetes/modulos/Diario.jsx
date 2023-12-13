@@ -16,7 +16,7 @@ export default function Diario({icon,codigo,RegistradoPor}){
     const fechData = async ()=>{
         const transacciones = await axios.get("https://server-contable.onrender.com/getTrans")
         if(transacciones.data.length > 0) {
-            const buscado = transacciones.data.filter(re => cuentas.includes(re.Codigo) || (re.Codigo.length == 5 && re.Saldo > 0) || (re.Codigo.length == 5 && re.Saldo < 0 ))
+            const buscado = transacciones.data.filter(re => cuentas.includes(re.Codigo) || (re.Codigo.length == 5 && re.Saldo > 0) || (re.Codigo.length == 5 && re.Saldo < 0 ) || (re.Codigo.length == 6 && re.Saldo < 0) || (re.Codigo.length == 6 && re.Saldo > 0))
             const filtro = buscado.filter((fil)=> fil.Registro == RegistradoPor)
             if(filtro.length > 0){
                 setApi(filtro)
@@ -139,7 +139,7 @@ export default function Diario({icon,codigo,RegistradoPor}){
                      <td className="moditr">{`${ap.Asiento}-000${ap.seq}`}</td>
                      <td className="moditr">{ap.Fecha}</td>
                      <td className="moditr">{ap.Descripcion}</td>
-                     <td className="moditr">{formatoNumero.format(ap.Monto)}</td>
+                     <td className="moditr">{formatoNumero.format(ap.Saldo)}</td>
                 </tr>)) 
                 : 
                 api.map((ap,index) =>(
@@ -148,7 +148,7 @@ export default function Diario({icon,codigo,RegistradoPor}){
                      <td className="moditr">{`${ap.Asiento}-000${ap.seq}`}</td>
                      <td className="moditr">{ap.Fecha}</td>
                      <td className="moditr">{ap.Descripcion}</td>
-                     <td className="moditr">{formatoNumero.format(ap.Monto)}</td>
+                     <td className="moditr">{formatoNumero.format(ap.Saldo)}</td>
                 </tr>
                 ))}
               </>}
