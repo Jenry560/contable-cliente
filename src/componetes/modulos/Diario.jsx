@@ -108,7 +108,7 @@ export default function Diario({icon,codigo,RegistradoPor}){
         <input type="text" name="filtro" className={visibility ? "liqui_text ayust1" : "visibility"} id="filtro" /><AiOutlineSearch onClick={filtrar} className="search"/>
         </div>
             <div className="move">
-              <h1 className="ite_title">Diario general</h1>
+              <h1 className="ite_title">Mayor general</h1>
               {icon}
             </div>  
         </div>

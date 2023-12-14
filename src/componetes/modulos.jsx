@@ -137,7 +137,7 @@ function Modulos() {
             </div>
         </figure>
         </Link>
-        <h1 className='title'>Diario general</h1>
+        <h1 className='title'>Mayor general</h1>
         </div> 
         
        
