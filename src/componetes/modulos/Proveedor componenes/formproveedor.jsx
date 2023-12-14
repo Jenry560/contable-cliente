@@ -17,7 +17,7 @@ export default function FormProveedor({fechData,datos,estado,setEstado,Registrad
     const  consultRnc = async (e) => {
         setCargando(true)
         const consultarRnc = watch('Rnc','')
-        const response = await axios.get(`https://api-dgi-class.onrender.com/dgi/${consultarRnc}`)
+        const response = await axios.get(`https://api-dgi-production.up.railway.app/dgi/${consultarRnc}`)
         if(response.data.length > 0){
             alert(`Nombre: ${response.data[0].nombre} Status: ${response.data[0].status}`)
         }else{
