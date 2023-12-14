@@ -114,7 +114,7 @@ export default function Proveedor({RegistradoPor}){
         
                     const respuesta = await axios.post("https://contable-server-production.up.railway.app/liquidar",dataLiqui)
                     if(respuesta){
-                        window.location.reload()
+                        window.location.href = "/";
                     }
                 }else{
                   alert("Solo puede selecionar un debito y credito para poder liquidar la tra")

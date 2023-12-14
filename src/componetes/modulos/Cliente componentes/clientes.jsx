@@ -132,7 +132,7 @@ export default function Cliente({RegistradoPor}){
                         }
                          const RegistroCorrecto = await axios.post("https://contable-server-production.up.railway.app/postTrans",nuevoIngreso)
                          if(RegistroCorrecto){
-                            window.location.reload()
+                            window.location.href = "/";
                          }
                         }else{
                             const buscarNegativo = base.find((dat)=> dat.seq === valor_Negativo)
@@ -148,7 +148,7 @@ export default function Cliente({RegistradoPor}){
                         }
                         const RegistroCorrecto = await axios.post("https://contable-server-production.up.railway.app/postTrans",nuevoIngreso)
                         if(RegistroCorrecto){
-                            window.location.reload()
+                            window.location.href = "/";
                         }
                         }
                         
