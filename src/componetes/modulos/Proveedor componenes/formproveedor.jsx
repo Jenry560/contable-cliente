@@ -41,7 +41,7 @@ export default function FormProveedor({fechData,datos,estado,setEstado,Registrad
                 "Correo": data.Correo,
                 "Registro": RegistradoPor
             }
-            await axios.post("https://server-contable.onrender.com/postProveedor",NuevProveedor)
+            await axios.post("https://contable-server-production.up.railway.app/postProveedor",NuevProveedor)
             fechData()
             setEstado(!estado)     
         }

@@ -28,7 +28,7 @@ export default function FormCliente({fechData,datos,estado,setEstado,RegistradoP
                 "Cedula": data.Cedula,
                 "Registro": RegistradoPor
             }
-            await axios.post("https://server-contable.onrender.com/postcliente",NuevoCliente)
+            await axios.post("https://contable-server-production.up.railway.app/postcliente",NuevoCliente)
             fechData()
             setEstado(!estado)     
         }

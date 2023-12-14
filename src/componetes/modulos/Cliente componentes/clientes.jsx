@@ -24,7 +24,7 @@ export default function Cliente({RegistradoPor}){
 
 
     const fechData= async ()=>{
-        const ClienteData = await axios.get("https://server-contable.onrender.com/getcliente")
+        const ClienteData = await axios.get("https://contable-server-production.up.railway.app/getcliente")
         const filtro = ClienteData.data.filter((fil)=> fil.Registro == RegistradoPor)
         if(filtro.length > 0){
             setDatos(filtro)
@@ -32,7 +32,7 @@ export default function Cliente({RegistradoPor}){
     }
 
     const fechDataTrans = async ()=>{
-        const TransData = await axios.get("https://server-contable.onrender.com/getTrans")
+        const TransData = await axios.get("https://contable-server-production.up.railway.app/getTrans")
         const filtro = TransData.data.filter((fil)=> fil.Registro == RegistradoPor)
         if(filtro.length > 0){
             setBase(filtro)
@@ -112,7 +112,7 @@ export default function Cliente({RegistradoPor}){
                         value: value
                     }
         
-                    const respuesta = await axios.post("https://server-contable.onrender.com/liquidar",dataLiqui)
+                    const respuesta = await axios.post("https://contable-server-production.up.railway.app/liquidar",dataLiqui)
 
                    
                     
@@ -130,7 +130,7 @@ export default function Cliente({RegistradoPor}){
                                 "Fecha": `${buscarNegativo.Fecha}`,
                                 "Registro": RegistradoPor
                         }
-                         const RegistroCorrecto = await axios.post("https://server-contable.onrender.com/postTrans",nuevoIngreso)
+                         const RegistroCorrecto = await axios.post("https://contable-server-production.up.railway.app/postTrans",nuevoIngreso)
                          if(RegistroCorrecto){
                             window.location.reload()
                          }
@@ -146,7 +146,7 @@ export default function Cliente({RegistradoPor}){
                                 "Monto": nuevoMonto,
                                 "Fecha": `${buscarNegativo.Fecha}`
                         }
-                        const RegistroCorrecto = await axios.post("https://server-contable.onrender.com/postTrans",nuevoIngreso)
+                        const RegistroCorrecto = await axios.post("https://contable-server-production.up.railway.app/postTrans",nuevoIngreso)
                         if(RegistroCorrecto){
                             window.location.reload()
                         }

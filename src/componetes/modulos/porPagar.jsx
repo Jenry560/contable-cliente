@@ -16,8 +16,8 @@ export default function PorPagar({title,icon,codigo,RegistradoPor}){
     
     
     const fechData = async () =>{
-        const Proveedors = await axios.get("https://server-contable.onrender.com/getProveedores")
-        const transacciones = await axios.get("https://server-contable.onrender.com/getTrans")
+        const Proveedors = await axios.get("https://contable-server-production.up.railway.app/getProveedores")
+        const transacciones = await axios.get("https://contable-server-production.up.railway.app/getTrans")
         if (transacciones.data.length > 0) {
             const cxc = transacciones.data.filter((red)=> red.Codigo.length == 6 && red.Saldo < 0 && red.Registro == RegistradoPor ) 
             if (Proveedors.data.length > 0 && cxc.length > 0 ) {

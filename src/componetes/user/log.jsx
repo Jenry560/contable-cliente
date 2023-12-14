@@ -20,7 +20,7 @@ export default function Log(){
             Nombre: data.name,
         }
 
-        const response = await axios.post("https://server-contable.onrender.com/google",newData)
+        const response = await axios.post("https://contable-server-production.up.railway.app/google",newData)
         if(response.data.check){
             const form = document.getElementsByClassName("input_user")
             form[0].reset()
@@ -45,7 +45,7 @@ export default function Log(){
      
         setLoad(true)
        
-        const response = await axios.post("https://server-contable.onrender.com/compare",data)
+        const response = await axios.post("https://contable-server-production.up.railway.app/compare",data)
     
         if(response.data.check){
             await localStorage.setItem("user",JSON.stringify(response.data))

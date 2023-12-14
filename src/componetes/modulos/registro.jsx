@@ -14,8 +14,8 @@ export default function Registro({RegistradoPor}){
 
 
     const fechDataClient= async ()=>{
-        const transDataClientes = await axios.get("https://server-contable.onrender.com/getCliente")
-        const transDataProveedores = await axios.get("https://server-contable.onrender.com/getProveedores")
+        const transDataClientes = await axios.get("https://contable-server-production.up.railway.app/getCliente")
+        const transDataProveedores = await axios.get("https://contable-server-production.up.railway.app/getProveedores")
         const personasData = transDataClientes.data.concat(transDataProveedores.data)
         setDatos(personasData)
     }
@@ -63,14 +63,14 @@ export default function Registro({RegistradoPor}){
           newInventario.Monto = data.Monto
           newInventario.Saldo = data.Monto
           newInventario.Descripcion = `Proveedor: ${encontradClient.Nombre} (${newdata.Descripcion}) `
-          await axios.post("https://server-contable.onrender.com/postTrans",newInventario)
+          await axios.post("https://contable-server-production.up.railway.app/postTrans",newInventario)
 
         }
 
 
 
 
-        const response = await axios.post("https://server-contable.onrender.com/postTrans",newdata)
+        const response = await axios.post("https://contable-server-production.up.railway.app/postTrans",newdata)
         
         if(response.data.check){
             setlook(true)

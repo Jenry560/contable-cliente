@@ -14,7 +14,7 @@ export default function Diario({icon,codigo,RegistradoPor}){
 
  
     const fechData = async ()=>{
-        const transacciones = await axios.get("https://server-contable.onrender.com/getTrans")
+        const transacciones = await axios.get("https://contable-server-production.up.railway.app/getTrans")
         if(transacciones.data.length > 0) {
             const buscado = transacciones.data.filter(re => cuentas.includes(re.Codigo) || (re.Codigo.length == 5 && re.Saldo > 0) || (re.Codigo.length == 5 && re.Saldo < 0 ) || (re.Codigo.length == 6 && re.Saldo < 0) || (re.Codigo.length == 6 && re.Saldo > 0))
             const filtro = buscado.filter((fil)=> fil.Registro == RegistradoPor)

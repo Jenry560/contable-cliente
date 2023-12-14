@@ -21,7 +21,7 @@ export default function Sign(){
             Nombre: data.name,
         }
         
-        const response = await axios.post("https://server-contable.onrender.com/google",newData)
+        const response = await axios.post("https://contable-server-production.up.railway.app/google",newData)
         if(response.data.check){
             const form = document.getElementsByClassName("input_user")
             form[0].reset()
@@ -41,7 +41,7 @@ export default function Sign(){
         const form = document.getElementsByClassName("input_user")
         setLoad(true)
         if(data.Contraseña == data.Repetir){
-            const response = await axios.post("https://server-contable.onrender.com/postlog",data)
+            const response = await axios.post("https://contable-server-production.up.railway.app/postlog",data)
             if(response.data.check){
                 form[0].reset()
                 history("/log")
