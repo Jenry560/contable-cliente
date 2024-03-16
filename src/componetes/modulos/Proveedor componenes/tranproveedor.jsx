@@ -37,6 +37,7 @@ export default function TranProveedor({
 
   useEffect(() => {
     SearchCodigo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ export default function TranProveedor({
     } else {
       autosuma(codigo);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filtro]);
 
   function imprimir() {

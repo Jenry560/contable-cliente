@@ -54,7 +54,7 @@ export default function Cliente({ RegistradoPor }) {
     if (datos) {
       fechData();
     }
-  }, [datos]);
+  }, []);
 
   //Codigo para liquidar
 

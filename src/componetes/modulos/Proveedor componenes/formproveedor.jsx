@@ -24,15 +24,23 @@ export default function FormProveedor({
   const consultRnc = async () => {
     setCargando(true);
     const consultarRnc = watch("Rnc", "");
-    const response = await axios.get(
-      `https://api-dgi-production.up.railway.app/dgi/${consultarRnc}`
-    );
-    if (response.data.length > 0) {
-      alert(
-        `Nombre: ${response.data[0].nombre} Status: ${response.data[0].status}`
+
+    const config = {
+      headers: {
+        Authorization: "Token a0678ab405d56a074b3443826aa68fcb4e244648",
+      },
+    };
+
+    try {
+      const response = await axios.get(
+        `https://djangornc.azurewebsites.net/rnc/${consultarRnc}`,
+        config
       );
-    } else {
+
+      alert(`Nombre: ${response.data.nombre} Status: ${response.data.status}`);
+    } catch (error) {
       alert("Rnc no es valido");
+      console.log(error);
     }
     setCargando(false);
   };
@@ -67,7 +75,7 @@ export default function FormProveedor({
     if (estado) {
       form[0].reset();
     }
-  }, [estado]);
+  }, [estado, form]);
 
   return (
     <>

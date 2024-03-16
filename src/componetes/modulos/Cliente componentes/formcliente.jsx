@@ -48,7 +48,7 @@ export default function FormCliente({
     if (estado) {
       form[0].reset();
     }
-  }, [estado]);
+  }, [estado, form]);
 
   return (
     <>

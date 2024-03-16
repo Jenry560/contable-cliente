@@ -54,7 +54,7 @@ export default function Proveedor({ RegistradoPor }) {
     if (datos) {
       fechData();
     }
-  }, [datos]);
+  }, []);
 
   //Codigo para liquidar
 
