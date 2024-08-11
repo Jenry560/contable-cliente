@@ -3,13 +3,15 @@ import Data from "./datopro";
 import axios from "axios";
 import * as XLSX from "xlsx";
 import { BiPrinter } from "react-icons/bi";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineSearch } from "react-icons/ai";
 import { RiFileExcel2Fill } from "react-icons/ri";
 import TranProveedor from "./tranproveedor";
 import FormProveedor from "./formproveedor";
 import { FaTruck } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Proveedor({ RegistradoPor }) {
+  const navigate = useNavigate();
   const [datos, setDatos] = useState([]);
   const [estado, setEstado] = useState(false);
   const [env, setEnv] = useState();
@@ -187,6 +189,12 @@ export default function Proveedor({ RegistradoPor }) {
       ) : (
         <>
           <div>
+            <div className="icon_back">
+              <AiOutlineArrowLeft
+                className="back_icon"
+                onClick={() => navigate("/")}
+              />
+            </div>
             <h1 className="cliente_title">Proveedores</h1>
             <div className="icon_add">
               <FaTruck

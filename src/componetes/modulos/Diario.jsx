@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { BiPrinter } from "react-icons/bi";
 import axios from "axios";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineSearch } from "react-icons/ai";
 import { RiFileExcel2Fill } from "react-icons/ri";
 import * as XLSX from "xlsx";
+import { useNavigate } from "react-router-dom";
 
 export default function Diario({ icon, codigo, RegistradoPor }) {
+  const navigate = useNavigate();
   const [api, setApi] = useState([]);
   const cuentas = ["7050", "7060", "7070", "7080", "7090"];
   const [filtro, setFiltro] = useState([]);
@@ -98,6 +100,12 @@ export default function Diario({ icon, codigo, RegistradoPor }) {
 
   return (
     <>
+      <div className="icon_back">
+        <AiOutlineArrowLeft
+          className="back_icon"
+          onClick={() => navigate("/")}
+        />
+      </div>
       <div>
         <div className="movecont">
           <BiPrinter

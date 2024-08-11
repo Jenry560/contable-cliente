@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BsFillFileTextFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 export default function Registro({ RegistradoPor }) {
+  const navigate = useNavigate();
   const form = document.getElementsByClassName("form2");
   const {
     register,
@@ -100,6 +103,12 @@ export default function Registro({ RegistradoPor }) {
   return (
     <>
       <div>
+        <div className="icon_back">
+          <AiOutlineArrowLeft
+            className="back_icon"
+            onClick={() => navigate("/")}
+          />
+        </div>
         <form onSubmit={handleSubmit(onsubmit)} className="form2">
           <div className="regiclas">
             <BsFillFileTextFill className="icon_regi" />

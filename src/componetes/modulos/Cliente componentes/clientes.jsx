@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import FormCliente from "./formcliente";
-import { AiOutlineUserAdd } from "react-icons/ai";
+import {
+  AiFillDelete,
+  AiOutlineArrowLeft,
+  AiOutlineUserAdd,
+} from "react-icons/ai";
 import Data from "./dato";
 import axios from "axios";
 import * as XLSX from "xlsx";
@@ -8,8 +12,10 @@ import Trancliente from "./trancliente";
 import { BiPrinter } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { RiFileExcel2Fill } from "react-icons/ri";
-
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 export default function Cliente({ RegistradoPor }) {
+  const navigate = useNavigate();
   const [datos, setDatos] = useState([]);
   const [estado, setEstado] = useState(false);
   const [env, setEnv] = useState();
@@ -55,6 +61,28 @@ export default function Cliente({ RegistradoPor }) {
       fechData();
     }
   }, []);
+  const deleteCliente = async (id) => {
+    Swal.fire({
+      title: "Estas seguro?",
+      text: "Quieres eliminar este cliente?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Si, eliminar!",
+      cancelButtonText: "No, cancelar!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .get(`https://contableserver.azurewebsites.net/deleteCliente/${id}`)
+          .then((res) => {
+            if (res.data.check) {
+              fechData();
+            } else {
+              alert(res.data.mensaje);
+            }
+          });
+      }
+    });
+  };
 
   //Codigo para liquidar
 
@@ -232,6 +260,12 @@ export default function Cliente({ RegistradoPor }) {
       ) : (
         <>
           <div>
+            <div className="icon_back">
+              <AiOutlineArrowLeft
+                className="back_icon"
+                onClick={() => navigate("/")}
+              />
+            </div>
             <h1 className="cliente_title">Clientes</h1>
             <div className="icon_add">
               <AiOutlineUserAdd
@@ -268,6 +302,7 @@ export default function Cliente({ RegistradoPor }) {
                     <th>Direccion</th>
                     <th>Numero</th>
                     <th>Cedula</th>
+                    <th>Accion</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -290,6 +325,15 @@ export default function Cliente({ RegistradoPor }) {
                               <td>{dato.Direccion}</td>
                               <td>{dato.Numero}</td>
                               <td>{dato.Cedula}</td>
+                              <td>
+                                {/* Safacon rojo */}
+                                <AiFillDelete
+                                  className="delete_icon"
+                                  onClick={() => {
+                                    deleteCliente(dato.Codigo);
+                                  }}
+                                />
+                              </td>
                             </tr>
                           ))}
                     </>

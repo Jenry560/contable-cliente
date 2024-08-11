@@ -180,6 +180,27 @@ tr:hover td {
 .value:hover {
   text-decoration: none;
 }
+.icon_back {
+  position: absolute;
+  top: 100px;
+  left: 60px;
+  font-size: 50px;
+  color: white;
+  transition: color 0.3s;
+}
+.back_icon,
+.add_icon {
+  transition: color 0.3s ease-in-out;
+}
+.delete_icon {
+  color: red;
+  font-size: 25px;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.delete_icon:hover {
+  color: #e2643e;
+}
 .icon_add {
   text-align: center;
   display: flex;
@@ -190,7 +211,8 @@ tr:hover td {
   color: wheat;
   margin-bottom: 3px;
 }
-.add_icon:hover {
+.add_icon:hover,
+.back_icon:hover {
   color: #0f362d;
   cursor: pointer;
 }
