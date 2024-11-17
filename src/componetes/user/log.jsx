@@ -87,7 +87,7 @@ export default function Log() {
               Iniciar sesión
             </h1>
           </div>
-          <div className="user">
+          <div className="user_log">
             <input
               type="text"
               placeholder="Correo"

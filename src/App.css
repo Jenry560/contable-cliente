@@ -390,6 +390,7 @@ select {
 }
 .input_user {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   margin: auto;
   align-items: center;
@@ -398,7 +399,12 @@ select {
   top: 20px;
   width: 80%;
 }
-
+.user_log {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .user_int {
   box-shadow: rgba(100, 100, 111, 0.6) 0px 7px 29px 0px;
   border-radius: 5px;
