@@ -89,6 +89,7 @@ export default function Log() {
           </div>
           <div className="user_log">
             <input
+              id="correo"
               type="text"
               placeholder="Correo"
               className="user_int"
@@ -98,6 +99,7 @@ export default function Log() {
               })}
             />
             <input
+              id="clave"
               type="password"
               placeholder="Contraseña"
               className="user_int"
