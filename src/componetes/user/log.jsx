@@ -112,7 +112,7 @@ export default function Log() {
 
           <div className="inline">
             {mensaje && (
-              <p style={{ fontSize: "15px", color: "red" }}>{mensaje}</p>
+              <p id="error-message" style={{ fontSize: "15px", color: "red" }}>{mensaje}</p>
             )}
             {errors.Correo?.type === "pattern" && (
               <p style={{ fontSize: "15px" }}>El Correo no es valido</p>
