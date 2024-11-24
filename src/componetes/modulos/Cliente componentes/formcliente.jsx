@@ -71,6 +71,7 @@ export default function FormCliente({
               )}
               <label>Codigo:</label>
               <input
+              id="Codigo"
                 type="number"
                 {...register("Codigo", {
                   required: true,
@@ -92,6 +93,7 @@ export default function FormCliente({
               )}
               <label>Nombre:</label>
               <input
+                id="Nombre"
                 type="text"
                 maxLength="25"
                 {...register("Nombre", {
@@ -110,6 +112,7 @@ export default function FormCliente({
               )}
               <label>Direccion</label>
               <input
+                id="Direccion"
                 type="text"
                 maxLength="40"
                 {...register("Direccion", {
@@ -132,6 +135,7 @@ export default function FormCliente({
               )}
               <label>Numero:</label>
               <input
+                id="Numero"
                 type="number"
                 {...register("Numero", {
                   required: true,
@@ -154,6 +158,7 @@ export default function FormCliente({
               )}
               <label>Cedula:</label>
               <input
+                id="Cedula"
                 type="number"
                 {...register("Cedula", {
                   required: true,
@@ -163,7 +168,7 @@ export default function FormCliente({
                 className="field"
               />
             </div>
-            <input type="submit" value="Registrar" className="btn btn-blue" />
+            <input id="btn-registro" type="submit" value="Registrar" className="btn btn-blue" />
           </form>
         </div>
       )}
