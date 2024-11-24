@@ -117,6 +117,7 @@ export default function Registro({ RegistradoPor }) {
           <div>
             <label>Codigo:</label>
             <input
+              id="Codigo"
               type="number"
               {...register("Codigo", {
                 required: true,
@@ -139,6 +140,7 @@ export default function Registro({ RegistradoPor }) {
           <div>
             <label>Asiento:</label>
             <select
+              id="Asiento"
               {...register("Asiento", {
                 required: true,
               })}
@@ -158,6 +160,7 @@ export default function Registro({ RegistradoPor }) {
           <div>
             <label>Descripcion:</label>
             <input
+              id="Descripcion"
               type="text"
               maxLength="40"
               {...register("Descripcion", {
@@ -177,6 +180,7 @@ export default function Registro({ RegistradoPor }) {
           <div>
             <label>Partida contable:</label>
             <select
+              id="Partida"
               type="number"
               {...register("Partida", {
                 required: true,
@@ -195,6 +199,7 @@ export default function Registro({ RegistradoPor }) {
           <div>
             <label>Monto:</label>
             <input
+              id="Monto"
               type="number"
               {...register("Monto", {
                 required: true,
@@ -210,6 +215,7 @@ export default function Registro({ RegistradoPor }) {
             <p className={look ? "cambio2" : "cambio1"}>{mensaje}</p>
           ) : (
             <input
+              id="Submit"
               type="submit"
               value="Registrar transaccion"
               className="btn btn-blue"
