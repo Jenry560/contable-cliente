@@ -15,7 +15,7 @@ function Modulos() {
       <div className="container">
         <div className="picture__cont">
           <div>
-            <Link to="/cliente">
+            <Link to="/cliente" id="cliente_modulo">
               <figure className="information__pictures">
                 <img src={cliente} className="information__img" />
                 <div className="capa">
@@ -40,7 +40,7 @@ function Modulos() {
           </div>
 
           <div>
-            <Link to="/registro">
+            <Link to="/registro" id="registro_modulo">
               <figure className="information__pictures">
                 <img src={registro} className="information__img" />
                 <div className="capa">
@@ -114,7 +114,7 @@ function Modulos() {
           </div>
 
           <div>
-            <Link to="/diario">
+            <Link to="/diario" id="mayor_modulo">
               <figure className="information__pictures">
                 <img src={diario} className="information__img" />
                 <div className="capa">
