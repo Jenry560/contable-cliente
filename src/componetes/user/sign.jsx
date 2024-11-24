@@ -87,6 +87,7 @@ export default function Sign() {
           </div>
           <div className="user">
             <input
+              id="Nombre"
               type="text"
               placeholder="Nombre completo"
               className="user_int"
@@ -97,6 +98,7 @@ export default function Sign() {
             />
 
             <input
+              id="Correo"
               type="text"
               placeholder="Correo"
               className="user_int"
@@ -106,6 +108,7 @@ export default function Sign() {
               })}
             />
             <input
+              id="Clave"
               type="password"
               placeholder="Contraseña"
               className="user_int"
@@ -115,6 +118,7 @@ export default function Sign() {
               })}
             />
             <input
+              id="RepetirClave"
               type="password"
               placeholder="Repetir contraseña"
               className="user_int"
@@ -159,7 +163,7 @@ export default function Sign() {
             {load ? (
               <Loader />
             ) : (
-              <input type="submit" value="Crear usuario" className="btnx btn" />
+              <input id="boton-registro" type="submit" value="Crear usuario" className="btnx btn" />
             )}
           </div>
         </form>
