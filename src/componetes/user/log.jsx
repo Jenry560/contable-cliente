@@ -134,7 +134,7 @@ export default function Log() {
               />
             </div>
             <p className="media">
-              Aun no tienes una cuenta entra &nbsp;<Link to="/sign"> aqui</Link>
+              Aun no tienes una cuenta entra &nbsp;<Link id="register-link" to="/sign"> aqui</Link>
             </p>
 
             {load ? (
