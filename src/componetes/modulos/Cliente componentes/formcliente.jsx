@@ -81,7 +81,7 @@ export default function FormCliente({
                 className="field"
               />
 
-              {repetido && <p>El codigo ya esta en el sistema</p>}
+              {repetido && <p id="repetido">El codigo ya esta en el sistema</p>}
             </div>
 
             <div>
